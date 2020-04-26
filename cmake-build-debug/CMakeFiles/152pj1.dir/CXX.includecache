@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/acat/CLionProjects/152pj1/event.cpp
+event.h
+/Users/acat/CLionProjects/152pj1/event.h
+
+/Users/acat/CLionProjects/152pj1/event.h
+iostream
+-
+
+/Users/acat/CLionProjects/152pj1/main.cpp
+iostream
+-
+random
+-
+queue
+-
+list
+-
+vector
+-
+event.h
+/Users/acat/CLionProjects/152pj1/event.h
+algorithm
+-
+

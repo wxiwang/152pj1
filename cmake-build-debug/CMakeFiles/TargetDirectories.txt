@@ -1,0 +1,3 @@
+/Users/acat/CLionProjects/152pj1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/acat/CLionProjects/152pj1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/acat/CLionProjects/152pj1/cmake-build-debug/CMakeFiles/152pj1.dir
