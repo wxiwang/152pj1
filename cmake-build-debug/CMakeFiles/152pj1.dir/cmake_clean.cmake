@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "152pj1.pdb"
   "CMakeFiles/152pj1.dir/event.cpp.o"
   "CMakeFiles/152pj1.dir/main.cpp.o"
+  "CMakeFiles/152pj1.dir/transmitter.cpp.o"
 )
 
 # Per-language clean rules from dependency scanning.

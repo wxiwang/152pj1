@@ -5,6 +5,7 @@
 #include <vector>
 #include "event.h"
 #include <algorithm>
+#include "transmitter.h"
 struct cmp{
     bool operator ()(const event& lhs,const event& rhs){
         return lhs.time < rhs.time;
@@ -22,19 +23,8 @@ int main() {
 
     lambda=0.4;
     mu=0.5;
-    /*std::vector<event> items;
-    std::make_heap(items.begin(),items.end());
-    event e1(3,true,1);
-    event e2(5,true,2);
-    items.push_back(e1);
-    std::push_heap(items.begin(),items.end());
-    items.push_back(e2);
-    std::push_heap(items.begin(),items.end());
-    std::cout << "The maximum element of heap after push is : "<<items.front().time<<std::endl;
-    std::pop_heap(items.begin(),items.end());
-    items.pop_back();
-    std::cout << "The maximum element of heap after pop is : "<<items.front().time<<std::endl;
-    std::cout << "Hello, World!" << std::endl;*/
+
+    transmitter host;
 
     std::priority_queue<event,std::vector<event>,std::greater<> > items;
     event init(time+nedt(lambda),true,1);

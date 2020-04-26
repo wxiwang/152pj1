@@ -177,6 +177,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/152pj1.dir/build.make CMakeFiles/152pj1.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+transmitter.o: transmitter.cpp.o
+
+.PHONY : transmitter.o
+
+# target to build an object file
+transmitter.cpp.o:
+	$(MAKE) -f CMakeFiles/152pj1.dir/build.make CMakeFiles/152pj1.dir/transmitter.cpp.o
+.PHONY : transmitter.cpp.o
+
+transmitter.i: transmitter.cpp.i
+
+.PHONY : transmitter.i
+
+# target to preprocess a source file
+transmitter.cpp.i:
+	$(MAKE) -f CMakeFiles/152pj1.dir/build.make CMakeFiles/152pj1.dir/transmitter.cpp.i
+.PHONY : transmitter.cpp.i
+
+transmitter.s: transmitter.cpp.s
+
+.PHONY : transmitter.s
+
+# target to generate assembly for a file
+transmitter.cpp.s:
+	$(MAKE) -f CMakeFiles/152pj1.dir/build.make CMakeFiles/152pj1.dir/transmitter.cpp.s
+.PHONY : transmitter.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -192,6 +219,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... transmitter.o"
+	@echo "... transmitter.i"
+	@echo "... transmitter.s"
 .PHONY : help
 
 

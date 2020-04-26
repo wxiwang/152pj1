@@ -8,9 +8,9 @@
 #include <iostream>
 class event{
 public:
-    double time;
+    double time;//The time it take place
     bool type;//true if it's an arrival event otherwise it's departure
-    int number;
+    int number;//# of the event
     event(double time, bool type, int number):time(time),type(type),number(number){}
     friend bool operator > (const event& lhs,const event& rhs){return lhs.time > rhs.time;}
     void print(){std::cout<<"time="<<time<<", type="<<type<<", number="<<number<<std::endl;}

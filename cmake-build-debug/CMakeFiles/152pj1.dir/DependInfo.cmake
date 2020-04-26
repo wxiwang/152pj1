@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/acat/CLionProjects/152pj1/event.cpp" "/Users/acat/CLionProjects/152pj1/cmake-build-debug/CMakeFiles/152pj1.dir/event.cpp.o"
   "/Users/acat/CLionProjects/152pj1/main.cpp" "/Users/acat/CLionProjects/152pj1/cmake-build-debug/CMakeFiles/152pj1.dir/main.cpp.o"
+  "/Users/acat/CLionProjects/152pj1/transmitter.cpp" "/Users/acat/CLionProjects/152pj1/cmake-build-debug/CMakeFiles/152pj1.dir/transmitter.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

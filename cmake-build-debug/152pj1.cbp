@@ -89,6 +89,12 @@
 		<Unit filename="/Users/acat/CLionProjects/152pj1/main.cpp">
 			<Option target="152pj1"/>
 		</Unit>
+		<Unit filename="/Users/acat/CLionProjects/152pj1/transmitter.cpp">
+			<Option target="152pj1"/>
+		</Unit>
+		<Unit filename="/Users/acat/CLionProjects/152pj1/transmitter.h">
+			<Option target="152pj1"/>
+		</Unit>
 		<Unit filename="/Users/acat/CLionProjects/152pj1/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
