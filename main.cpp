@@ -19,7 +19,7 @@ double nedt(double rate){
 int main() {
     double lambda;//arrival_rate
     double mu;//service_rate
-    double time = 0;
+    //double time = 0;
 
     lambda=0.4;
     mu=0.5;
@@ -30,7 +30,7 @@ int main() {
     //items.push_back(init);
     //time = init.time;
     int arrival_num = 0;
-    int departure_num=0;
+    int departure_num = 0;
 
     /*event new_departure(0,false,0);//Declare before we use it. Actually it's virtual.
     for(int i = 0; i < 10;i++){

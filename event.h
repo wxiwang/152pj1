@@ -17,7 +17,7 @@ public:
     event(double time, bool type, int number):time(time),type(type),number(number),queueLength(0),totalPacketLoss(0){}
     event(double time,bool type,int number,int queueLength,int totalPacketLoss):time(time),type(type),number(number),queueLength(queueLength),totalPacketLoss(totalPacketLoss){}
     friend bool operator > (const event& lhs,const event& rhs){return lhs.time > rhs.time;}
-    void print(){std::cout<<"time="<<time<<", type="<<type<<", number="<<number<<std::endl;}
+    void print(){std::cout<<"time="<<time<<", type="<<type<<", number="<<number<<", queueLength="<<queueLength<<", totalPacketLoss="<<totalPacketLoss<<std::endl;}
     void set(double Time,bool Type,int Number,int QueueLength,int TotalPacketLoss){
         time = Time;
         type = Type;
