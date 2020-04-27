@@ -25,5 +25,6 @@ public:
         queueLength = QueueLength;
         totalPacketLoss = TotalPacketLoss;
     }
+
 };
 #endif //INC_152PJ1_EVENT_H
