@@ -9,7 +9,7 @@
 class transmitter{
 public:
     bool isBusy(){return current_packet;}
-    int queueLength(){return buffer.size()+1;}
+    //int queueLength(){return buffer.size()+1;}
     int getCurrentPacket(){return current_packet;}
     int getPacketLoss(){return packet_loss;}
     transmitter()= default;
