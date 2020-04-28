@@ -5,6 +5,7 @@
 #include <vector>
 #include "event.h"
 #include <algorithm>
+#include<fstream>
 #include "transmitter.h"
 struct cmp{
     bool operator ()(const event& lhs,const event& rhs){
@@ -20,17 +21,18 @@ int main() {
     double lambda;//arrival_rate
     double mu;//service_rate
     //double time = 0;
+    mu=1;
+    int MAXBUFFER;
+    std::cout<<"Please enter lambda and MAX BUFFER: ";
+    std::cin>>lambda>>MAXBUFFER;
 
-    lambda=0.4;
-    mu=0.5;
-
-    transmitter host;
-    std::vector<event> items;
+    transmitter host(MAXBUFFER);//The transmitter object
+    std::list<event> items;//The Global Event List
     //event init(time+nedt(lambda),true,1);
     //items.push_back(init);
     //time = init.time;
-    int arrival_num = 0;
-    int departure_num = 0;
+    int arrival_num = 0;//The number of arriving packet
+    int departure_num = 0;//The number of departing packet
 
     /*event new_departure(0,false,0);//Declare before we use it. Actually it's virtual.
     for(int i = 0; i < 10;i++){
@@ -84,21 +86,21 @@ int main() {
         if(!cur_event.type){
             if(!host.isBusy())departure_time = arrival_time + nedt(mu);
             else departure_time += nedt(mu);
-        }
+        }//If the last event is departure, we only have to update the time of next departure and keep the arrival time unchanged.
         else {
             arrival_time += nedt(lambda);
-        }
+        }//else we only update the arrival time
 
 
         if(arrival_time<departure_time){
             arrival_num++;
             if(!host.bufferIsFull())cur_event.set(arrival_time,true,arrival_num,cur_event.queueLength+1,cur_event.totalPacketLoss);
-            else cur_event.set(arrival_time,true,arrival_num,cur_event.queueLength,cur_event.totalPacketLoss+1);
+            else cur_event.set(arrival_time,true,arrival_num,cur_event.queueLength,cur_event.totalPacketLoss+1);//Packet loss happens.
             items.push_back(cur_event);
             if(!host.isBusy()){
-                host.current_packet = arrival_num;
+                host.current_packet = arrival_num;//If the server is not busy, it starts to transmit the packet
             }
-            else host.buffer.push(arrival_num);
+            else host.buffer.push(arrival_num);//else put the packet into buffer
         }
         else{
             departure_num++;
@@ -108,15 +110,15 @@ int main() {
             host.current_packet = 0;
             if(!host.buffer.empty()){
                 host.current_packet = host.buffer.front();
-                host.buffer.pop();
+                host.buffer.pop();//enqueue the buffer
             }
         }
+        //If arrival time is less than departure time, it means the arrival event takes place before the departure event so we push the arrival event to GEL.
     }
 
     for(auto & item : items){
         item.print();
     }
-
     /*std::priority_queue<event,std::vector<event>,std::greater<> > items;
     event init(time+nedt(lambda),true,1);
     items.push(init);

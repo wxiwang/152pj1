@@ -13,6 +13,7 @@ public:
     int getCurrentPacket(){return current_packet;}
     int getPacketLoss(){return packet_loss;}
     transmitter()= default;
+    explicit transmitter(int MAXBUFFER):MAXBUFFER(MAXBUFFER){}
     bool bufferIsFull(){return buffer.size()>=MAXBUFFER;}
     std::queue<int> buffer;//The integers in it are the numbers of packets.
 
