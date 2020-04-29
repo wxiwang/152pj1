@@ -134,7 +134,7 @@ int main() {
     std::ofstream out;
     out.open(filePath);
     if(!out.is_open())std::cout<<"file not open";
-    out<<"time,type,number,queueLength,totalPacketLength"<<std::endl;
+    out<<"time,type,number,queueLength,totalPacketLoss"<<std::endl;
     for(auto & item : items){
         out<<item.time<<","<<item.type<<","<<item.number<<","<<item.queueLength<<","<<item.totalPacketLoss<<std::endl;
     }

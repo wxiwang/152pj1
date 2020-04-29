@@ -1,4 +1,4 @@
-time,type,number,queueLength,totalPacketLength
+time,type,number,queueLength,totalPacketLoss
 5.04951,1,1,1,0
 6.88513,0,1,0,0
 9.40879,1,2,1,0

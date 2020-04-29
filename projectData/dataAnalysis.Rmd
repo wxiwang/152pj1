@@ -1,0 +1,87 @@
+---
+title: "152pj1"
+author: "Weixiang Wang"
+date: "4/28/2020"
+output: pdf_document
+---
+```{r}
+library(tidyverse)
+```
+
+```{r}
+setwd("/Users/acat/CLionProjects/152pj1/projectData")
+```
+
+```{r}
+lambda <- c("0.1","0.2","0.4","0.5","0.6","0.8","0.9")
+queue.length.vector<-lambda %>% map_dbl(function(x){
+  data <- read.table(paste("lambda=",x,".txt",sep=""),sep=",",header = TRUE)
+  total.area = 0
+  for (i in seq_len(nrow(data)-1)){
+    total.area = total.area + data$queueLength[i]*(data$time[i+1]-data$time[i])
+  }
+  mean.queue.length = total.area/(data$time[nrow(data)])
+  mean.queue.length
+})
+queue.length.vector
+```
+
+```{r}
+numeric.lambda <- c(0.1,0.2,0.4,0.5,0.6,0.8,0.9)
+plot(numeric.lambda,queue.length.vector,xlab = "lambda",ylab = "queue length")
+```
+```{r}
+lambda <- c("0.1","0.2","0.4","0.5","0.6","0.8","0.9")
+numeric.lambda <- c(0.2,0.4,0.5,0.6,0.8,0.9)
+utilization.vector<-lambda %>% map_dbl(function(x){
+  data <- read.table(paste("lambda=",x,".txt",sep=""),sep=",",header = TRUE)
+  busy.time = 0
+  for (i in seq_len(nrow(data)-1)){
+    if(data$queueLength[i]>0)busy.time = busy.time + (data$time[i+1]-data$time[i])
+  }
+  utilization = busy.time/(data$time[nrow(data)])
+  utilization
+})
+utilization.vector
+```
+
+```{r}
+plot(numeric.lambda,utilization.vector,xlab = "lambda",ylab = "utilization")
+```
+
+```{r}
+lambda <- c("0.2","0.4","0.5","0.6","0.8","0.9")
+packet.loss.vector1<-lambda %>% map_dbl(function(x){
+  data <- read.table(paste("lambda=",x,",MAXBUFFER=1.txt",sep=""),sep=",",header = TRUE)
+  data$totalPacketLoss[nrow(data)]
+})
+packet.loss.vector1
+```
+
+```{r}
+packet.loss.vector20<-lambda %>% map_dbl(function(x){
+  data <- read.table(paste("lambda=",x,",MAXBUFFER=20.txt",sep=""),sep=",",header = TRUE)
+  data$totalPacketLoss[nrow(data)]
+})
+packet.loss.vector20
+```
+
+```{r}
+packet.loss.vector30<-lambda %>% map_dbl(function(x){
+  data <- read.table(paste("lambda=",x,",MAXBUFFER=30",".txt",sep=""),sep=",",header = TRUE)
+  data$totalPacketLoss[nrow(data)]
+})
+packet.loss.vector30
+```
+
+```{r}
+plot(numeric.lambda,packet.loss.vector1,xlab = "lambda",ylab = "total packet loss",main = "MAXBUFFER=1")
+```
+
+```{r}
+plot(numeric.lambda,packet.loss.vector20,xlab = "lambda",ylab = "total packet loss",main = "MAXBUFFER=20")
+```
+
+```{r}
+plot(numeric.lambda,packet.loss.vector30,xlab = "lambda",ylab = "total packet loss",main = "MAXBUFFER=30")
+```
