@@ -8,20 +8,13 @@
 #include<fstream>
 #include "transmitter.h"
 #include <cmath>
-struct cmp{
-    bool operator ()(const event& lhs,const event& rhs){
-        return lhs.time < rhs.time;
-    }
-};
+
 double nedt(double rate){
     double u;
     u = drand48();
     return ((-1/rate)*log(1-u));
 }
-int max(int x , int y){
-    if(x>y)return x;
-    else return y;
-}
+
 int main() {
     double lambda;//arrival_rate
     double mu;//service_rate
