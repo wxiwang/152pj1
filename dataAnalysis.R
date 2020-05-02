@@ -1,19 +1,11 @@
----
-title: "152pj1"
-author: "Weixiang Wang"
-date: "4/28/2020"
-output: pdf_document
----
-```{r}
 library(tidyverse)
-```
 
-```{r}
-setwd("/Users/acat/CLionProjects/152pj1/projectData")
-```
 
-```{r}
+
 setwd("/Users/acat/CLionProjects/152pj1/projectData")
+
+
+
 lambda <- c("0.1","0.2","0.4","0.5","0.6","0.8","0.9")
 queue.length.vector<-lambda %>% map_dbl(function(x){
   data <- read.table(paste("lambda=",x,".txt",sep=""),sep=",",header = TRUE)
@@ -25,16 +17,13 @@ queue.length.vector<-lambda %>% map_dbl(function(x){
   mean.queue.length
 })
 queue.length.vector
-```
 
-```{r}
+
+
 numeric.lambda <- c(0.1,0.2,0.4,0.5,0.6,0.8,0.9)
 plot(numeric.lambda,queue.length.vector,xlab = "lambda",ylab = "queue length",type="l")
-```
-```{r}
-setwd("/Users/acat/CLionProjects/152pj1/projectData")
-lambda <- c("0.1","0.2","0.4","0.5","0.6","0.8","0.9")
-numeric.lambda <- c(0.1,0.2,0.4,0.5,0.6,0.8,0.9)
+
+
 utilization.vector<-lambda %>% map_dbl(function(x){
   data <- read.table(paste("lambda=",x,".txt",sep=""),sep=",",header = TRUE)
   busy.time = 0
@@ -45,14 +34,13 @@ utilization.vector<-lambda %>% map_dbl(function(x){
   utilization
 })
 utilization.vector
-```
 
-```{r}
+
+
 plot(numeric.lambda,utilization.vector,xlab = "lambda",ylab = "utilization",type="l")
-```
 
-```{r}
-setwd("/Users/acat/CLionProjects/152pj1/projectData")
+
+
 lambda <- c("0.2","0.4","0.5","0.6","0.8","0.9")
 numeric.lambda <- c(0.2,0.4,0.5,0.6,0.8,0.9)
 packet.loss.vector1<-lambda %>% map_dbl(function(x){
@@ -60,34 +48,31 @@ packet.loss.vector1<-lambda %>% map_dbl(function(x){
   data$totalPacketLoss[nrow(data)]
 })
 packet.loss.vector1
-```
 
-```{r}
-setwd("/Users/acat/CLionProjects/152pj1/projectData")
+
+
 packet.loss.vector20<-lambda %>% map_dbl(function(x){
   data <- read.table(paste("lambda=",x,",MAXBUFFER=20.txt",sep=""),sep=",",header = TRUE)
   data$totalPacketLoss[nrow(data)]
 })
 packet.loss.vector20
-```
 
-```{r}
-setwd("/Users/acat/CLionProjects/152pj1/projectData")
+
+
 packet.loss.vector30<-lambda %>% map_dbl(function(x){
   data <- read.table(paste("lambda=",x,",MAXBUFFER=30",".txt",sep=""),sep=",",header = TRUE)
   data$totalPacketLoss[nrow(data)]
 })
 packet.loss.vector30
-```
 
-```{r}
+
+
 plot(numeric.lambda,packet.loss.vector1,xlab = "lambda",ylab = "total packet loss",main = "MAXBUFFER=1",type="l")
-```
 
-```{r}
+
+
 plot(numeric.lambda,packet.loss.vector20,xlab = "lambda",ylab = "total packet loss",main = "MAXBUFFER=20",type="l")
-```
 
-```{r}
+
+
 plot(numeric.lambda,packet.loss.vector30,xlab = "lambda",ylab = "total packet loss",main = "MAXBUFFER=30",type="l")
-```
